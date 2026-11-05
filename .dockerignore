@@ -8,3 +8,6 @@ bo_canary
 bo_nx
 bo_fixed
 bo_fixed_hardened
+
+# Keep the instructor answer key out of the build context.
+INSTRUCTOR-ANSWERS.md

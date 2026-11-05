@@ -7,3 +7,6 @@ core
 core.*
 __pycache__/
 .DS_Store
+
+# Local instructor material; keep out of the student repository.
+/INSTRUCTOR-ANSWERS.md

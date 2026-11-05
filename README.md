@@ -48,7 +48,8 @@ normally or crashed. An action followed by a crash still counts as an action.
 |---|---|---|---|---|---|
 | Baseline, canary off | | | | |
 | Canary on | | | | |
-| NX + PIE, canary off | | | | |
+| NX observation: reuse baseline | | | | |
+| PIE + OS ASLR, canary off | | | | |
 | Source repair | | | | |
 
 Record your architecture, compiler version and the exact input length too.
@@ -154,8 +155,24 @@ or undo actions performed before its check.
 
 ## Step 3: NX and ASLR (8 minutes)
 
-The baseline already requests a non-executable stack. Keep that setting and
-make the executable position independent, with the canary off again:
+### Step 3A: Observe NX on the baseline
+
+After the NX introduction, reuse the baseline binary from Step 1. Its canary
+is off and it already requests a non-executable stack:
+
+```bash
+readelf -W -l bo_passcheck | grep GNU_STACK
+./bo_passcheck
+```
+
+`GNU_STACK` should show `RW`, without `E`. Predict what NX checks, then type
+your same wrong input. Record whether the action appears. This observes the
+scope of an existing protection; it does not compare NX-on against NX-off.
+
+### Step 3B: Add PIE and check OS ASLR
+
+After the ASLR introduction, keep the non-executable-stack setting and make
+the executable position independent, with the canary still off:
 
 ```bash
 gcc -g -O0 -fno-stack-protector -fPIE -pie -Wl,-z,noexecstack -o bo_nx bo_passcheck.c
@@ -169,7 +186,8 @@ cat /proc/sys/kernel/randomize_va_space
 in this build. A kernel setting of `1` or `2` enables ASLR; `0` means it is off.
 These are different checks: `-pie` does not switch on ASLR or NX by itself.
 
-**Q5.** Reuse your Step 1 input. Does it trigger the action? Does this input
+**Q5.** Compare your observations in Steps 3A and 3B. Does the same input
+trigger the action in each? Does this input
 contain machine code to execute, or an absolute address to jump to? Explain
 what each defence checks and why that matters here.
 
