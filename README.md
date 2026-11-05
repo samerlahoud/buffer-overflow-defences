@@ -44,7 +44,7 @@ Before each experiment, write a prediction. Afterward, record **both** whether
 `[Privileged action executed]` appeared and whether the program terminated
 normally or crashed. An action followed by a crash still counts as an action.
 
-| Build | Prediction | Action printed? | Normal / rejected / crashed? | Evidence and explanation |
+| Build | Prediction | Action printed | Normal - rejected - crashed | Evidence and explanation | |
 |---|---|---|---|---|---|
 | Baseline, canary off | | | | |
 | Canary on | | | | |
