@@ -44,13 +44,13 @@ Before each experiment, write a prediction. Afterward, record **both** whether
 `[Privileged action executed]` appeared and whether the program terminated
 normally or crashed. An action followed by a crash still counts as an action.
 
-| Build | Prediction | Action printed | Normal - rejected - crashed | Evidence and explanation | |
-|---|---|---|---|---|---|
-| Baseline, canary off | | | | |
-| Canary on | | | | |
-| NX observation: reuse baseline | | | | |
-| PIE + OS ASLR, canary off | | | | |
-| Source repair | | | | |
+| Build | Prediction | Action printed | Normal - rejected - crashed | Evidence and explanation |
+|---|---|---|---|---|
+| Baseline, canary off | | | |
+| Canary on | | | |
+| NX observation: reuse baseline | | | |
+| PIE + OS ASLR, canary off | | | |
+| Source repair | | | |
 
 Record your architecture, compiler version and the exact input length too.
 A compiler may arrange separate local variables differently. Your measured
