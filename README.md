@@ -4,8 +4,7 @@ A password check should run its privileged action only for `password1`.
 Can a different input make it do so? Investigate first, then test which
 protections change the result and which actually remove the invalid write.
 
-Work in pairs: one person types, the other records predictions and evidence.
-Swap after Step 1. Allow about 45 minutes, with class discussion between steps.
+Allow about 45 minutes, with class discussion between steps.
 Use only the provided program and container. The “privileged action” is a print
 statement, not a real privileged operation.
 
