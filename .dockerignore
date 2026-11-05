@@ -1,0 +1,10 @@
+.git
+__pycache__
+.DS_Store
+core
+core.*
+bo_passcheck
+bo_canary
+bo_nx
+bo_fixed
+bo_fixed_hardened

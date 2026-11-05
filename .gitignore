@@ -1,0 +1,9 @@
+bo_passcheck
+bo_canary
+bo_nx
+bo_fixed
+bo_fixed_hardened
+core
+core.*
+__pycache__/
+.DS_Store
